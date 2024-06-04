@@ -1,11 +1,10 @@
-import Login from "./Pages/Login";
 import './Styles/index.css';
 
 
 function App() {
   return (
     <div>
-      <Login />
+      <h1 className="text-2xl">tess</h1>
     </div>
   );
 }
