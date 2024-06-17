@@ -14,10 +14,8 @@ const Register = () => {
     try {
       const response = await registerUser({ name, email, password });
       console.log('User registered successfully:', response);
-      // Redirect to login or another page if needed
     } catch (error) {
       console.error('Registration error:', error);
-      // Display error message to the user if needed
     }
   };
 
@@ -31,18 +29,33 @@ const Register = () => {
         </div>
         <div className="my-5 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
         </div>
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded" type="text" placeholder="Nama" />
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="email" placeholder="Email" />
-        <input className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4" type="password" placeholder="Kata Sandi" />
-        <div className="mt-4 flex justify-between font-semibold text-sm">
-          <label className="flex text-slate-500 hover:text-slate-600 cursor-pointer">
-          </label>
-        </div>
-        <div className="text-center md:text-center">
-          <button className="mt-2 bg-primary-color hover:bg-gray-500 px-5 py-3 text-white uppercase rounded text-xs tracking-wider font-bold font-poppins" type="submit">Daftar</button>
-        </div>
-        <div className="mt-4 text-sm font-poppins text-center md:center"
-        style={{color: '#ACB1B7'}}>
+        <form onSubmit={handleRegister}>
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded"
+            type="text"
+            placeholder="Nama"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="text-sm w-full px-4 py-2 border border-solid border-gray-300 rounded mt-4"
+            type="password"
+            placeholder="Kata Sandi"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="text-center md:text-center">
+            <button className="mt-2 bg-primary-color hover:bg-gray-500 px-5 py-3 text-white uppercase rounded text-xs tracking-wider font-bold font-poppins" type="submit">Daftar</button>
+          </div>
+        </form>
+        <div className="mt-4 text-sm font-poppins text-center md:center" style={{ color: '#ACB1B7' }}>
           Sudah punya akun? <a className="primary-color font-bold font-poppins hover:underline hover:underline-offset-4" href="/login">Masuk sekarang</a>
         </div>
       </div>

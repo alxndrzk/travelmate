@@ -1,0 +1,80 @@
+import React from 'react'
+
+const Navbar = () => {
+  return (
+<header className="bg-homepage shadow-md p-4 flex items-center">
+        <div className="text-4xl font-poppins font-bold text-black ml-72 ">
+          TravelMate
+        </div>
+
+        <nav className="flex space-x-6 ml-96">
+          <a
+            href="/"
+            style={{ color: "#2D3E50" }}
+            className="text-lg font-poppins font-bold hover:text-gray-900"
+          >
+            Beranda
+          </a>
+          <div className="relative">
+            <a
+              href=""
+              style={{ color: "#2D3E50" }}
+              className="text-lg font-poppins font-bold text-black hover:text-gray-900"
+            >
+              Wisata
+            </a>
+            <div className="absolute hidden group-hover:block bg-white shadow-lg">
+              <a
+                href="#sub-menu-1"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                Sub Menu 1
+              </a>
+              <a
+                href="#sub-menu-2"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                Sub Menu 2
+              </a>
+              <a
+                href="#sub-menu-3"
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              >
+                Sub Menu 3
+              </a>
+            </div>
+          </div>
+          <a
+            href="#artikel-terbaru"
+            style={{ color: "#2D3E50" }}
+            className="text-lg font-poppins font-bold text-black hhover:text-gray-900"
+          >
+            Artikel
+          </a>
+          <a
+            href="#tentang-kami"
+            style={{ color: "#2D3E50" }}
+            className="text-lg font-poppins font-bold text-black hover:text-gray-900"
+          >
+            Tentang Kami
+          </a>
+        </nav>
+
+        <div className="space-x-3 ml-96">
+          <button
+            className="px-4 py-2 font-poppins border border-gray-400 font-bold rounded-md text-black hover:text-gray-950"
+            onClick={() => (window.location.href = "/login")}
+          >
+            Masuk
+          </button>
+          <button
+            className="px-4 py-2 font-poppins bg-primary-color text-white font-bold rounded-md hover:text-gray-900"
+            onClick={() => (window.location.href = "/register")}
+          >
+            Daftar
+          </button>
+        </div>
+      </header>  )
+}
+
+export default Navbar
