@@ -68,7 +68,7 @@ const Login = () => {
           </div>
         </form>
         <div className="mt-4 text-sm font-poppins text-center md:center" style={{ color: '#ACB1B7' }}>
-          Belum punya akun? <a className="primary-color font-bold font-poppins hover:underline hover:underline-offset-4" href="/">Daftar sekarang</a>
+           punya akun? <a className="primary-color font-bold font-poppins hover:underline hover:underline-offset-4" href="/">Daftar sekarang</a>
         </div>
       </div>
     </section>
