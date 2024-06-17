@@ -1,4 +1,4 @@
-# Travelmate
+# Front-End Travelmate
 
 ## Getting Started
 
