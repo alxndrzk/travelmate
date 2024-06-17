@@ -23,7 +23,7 @@ const Register = () => {
           </label>
         </div>
         <div className="text-center md:text-center">
-          <button className="mt-2 bg-primary-color hover:bg-gray-500 px-5 py-3 text-white uppercase rounded text-xs tracking-wider font-bold font-poppins" type="submit">Daftar</button>
+          <button className="mt-2 bg-primary-color hover:bg-gray-500 px-5 py-3 text-white uppercase rounded text-xs tracking-wider font-bold font-poppins" type="submit" onClick={() => window.location.href='/'}>Daftar</button>
         </div>
         <div className="mt-4 text-sm font-poppins text-center md:center"
         style={{color: '#ACB1B7'}}>
