@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { registerUser } from '../Utils/Api'; // Adjust the path as needed
 import '../Styles/index.css';
 
 const images = require.context('../Assets', true, /\.png$/);
 
 const Register = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await registerUser({ name, email, password });
+      console.log('User registered successfully:', response);
+      // Redirect to login or another page if needed
+    } catch (error) {
+      console.error('Registration error:', error);
+      // Display error message to the user if needed
+    }
+  };
 
   const gambarDaftarAkun = images('./gambarDaftarAkun.png');
 
-  return(
+  return (
     <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
       <div className="md:w-1/3 max-w-sm">
         <div className="text-center md:text-center">
@@ -23,7 +39,7 @@ const Register = () => {
           </label>
         </div>
         <div className="text-center md:text-center">
-          <button className="mt-2 bg-primary-color hover:bg-gray-500 px-5 py-3 text-white uppercase rounded text-xs tracking-wider font-bold font-poppins" type="submit" onClick={() => window.location.href='/'}>Daftar</button>
+          <button className="mt-2 bg-primary-color hover:bg-gray-500 px-5 py-3 text-white uppercase rounded text-xs tracking-wider font-bold font-poppins" type="submit">Daftar</button>
         </div>
         <div className="mt-4 text-sm font-poppins text-center md:center"
         style={{color: '#ACB1B7'}}>
@@ -31,13 +47,10 @@ const Register = () => {
         </div>
       </div>
       <div className="md:w-1/3 max-w-sm">
-        <img
-          src={gambarDaftarAkun}
-          alt="image" />
+        <img src={gambarDaftarAkun} alt="image" />
       </div>
     </section>
-  )
+  );
+};
 
-}
-
-export default Register
+export default Register;
