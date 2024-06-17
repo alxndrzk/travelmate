@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// const BASE_URL = 'https://backend-travelmate.vercel.app/';
-const BASE_URL = 'http://localhost:3000/';
+const BASE_URL = 'https://backend-travelmate.vercel.app/';
 
 const fetchData = async (url, options = {}) => {
   try {
