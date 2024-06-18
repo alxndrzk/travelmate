@@ -43,7 +43,6 @@ const Homepage = () => {
             </button>
           </div>
         </div>
-
         <JenisPariwisata />
         <Article />
         <AboutUs />

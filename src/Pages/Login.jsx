@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
 import { loginUser } from '../Utils/Api'; // Adjust the path as needed
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode'; // Import jwtDecode correctly
 import '../Styles/index.css';
 
 const images = require.context('../Assets', true, /\.png$/);
@@ -9,6 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Use useNavigate
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,7 +30,8 @@ const Login = () => {
       
       localStorage.setItem('user', JSON.stringify(user));
 
-      // Redirect to a different page or update the state to reflect the logged-in status
+      // Redirect to /home
+      navigate('/home');
     } catch (error) {
       console.error('Login error:', error);
       setError('Failed to log in. Please check your credentials and try again.');
