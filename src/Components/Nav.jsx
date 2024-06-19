@@ -13,7 +13,7 @@ function Nav() {
         <nav className="navbar">
             <h1 className="header-logo">TravelMate</h1>
             <ul className="nav-links">
-                <li><Link to="/">Beranda</Link></li>
+                <li><Link to="/beranda">Beranda</Link></li>
                 <li><Link onClick={handleToggleDropdown}>Wisata</Link> {showDropdown && <DropdownMenu menuItems={wisataMenuItems}/>}</li>
                 <li><Link onClick={handleToggleDropdown}>Artikel</Link>{showDropdown && <DropdownMenu menuItems={artikelMenuItems}/>}</li>
                 <li><Link to="/about">About</Link></li>
