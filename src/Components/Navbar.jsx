@@ -21,7 +21,7 @@ const Navbar = () => {
           style={{ color: "#2D3E50" }}
           className="text-lg font-poppins font-bold hover:text-gray-900"
         >
-          Beranda
+          Berand
         </a>
         <div className="relative">
           <a

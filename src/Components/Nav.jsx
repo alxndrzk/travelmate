@@ -11,7 +11,7 @@ function Nav() {
 
     return(
         <nav className="navbar">
-            <h1 className="header-logo">TravelMate</h1>
+            <h1 className="header-logo font-poppins font-bold">TravelMate</h1>
             <ul className="nav-links">
                 <li><Link to="/beranda">Beranda</Link></li>
                 <li><Link onClick={handleToggleDropdown}>Wisata</Link> {showDropdown && <DropdownMenu menuItems={wisataMenuItems}/>}</li>

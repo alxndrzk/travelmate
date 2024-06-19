@@ -24,7 +24,7 @@ const Register = () => {
   const gambarDaftarAkun = images('./gambarDaftarAkun.png');
 
   return (
-    <section className="h-screen flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
+    <section className="h-screen bg-white flex flex-col md:flex-row justify-center space-y-10 md:space-y-0 md:space-x-16 items-center my-2 mx-5 md:mx-0 md:my-0">
       <div className="md:w-1/3 max-w-sm">
         <div className="text-center md:text-center">
           <label className="text-4xl font-bold font-poppins primary-color mr-1">Daftar Akun</label>
