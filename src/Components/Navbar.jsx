@@ -73,7 +73,7 @@ const Navbar = () => {
         {user ? (
           <>
             <span className="font-poppins text-gray-600 mr-5">
-             {user.email}
+            {user.email}
             </span>
             <button
               className="px-4 py-2 font-poppins border border-gray-400 font-bold rounded-md text-black hover:text-gray-950"
