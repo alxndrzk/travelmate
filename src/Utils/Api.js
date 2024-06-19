@@ -33,4 +33,3 @@ const registerUser = (userData) => postData(`${BASE_URL}auth/register`, userData
 const loginUser = (userData) => postData(`${BASE_URL}auth/login`, userData);
 
 export { getUsers, getPariwisata, getArticles, registerUser, loginUser };
-2

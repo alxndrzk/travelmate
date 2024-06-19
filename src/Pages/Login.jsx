@@ -31,7 +31,7 @@ const Login = () => {
       localStorage.setItem('user', JSON.stringify(user));
 
       // Redirect to /home
-      navigate('/home');
+      navigate('/beranda');
     } catch (error) {
       console.error('Login error:', error);
       setError('Failed to log in. Please check your credentials and try again.');
