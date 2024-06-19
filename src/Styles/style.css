@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+	font-family: 'Poppins', sans-serif;
+}
+
+:root {
+	padding: 0;
+	margin: 0;
+	background-color: #ededed;
+}
+
+//HEADER & NAVBAR
+
+header {
+	display: flex;
+	flex-direction: row;
+}
+
+.navbar {
+	padding: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	border: 1px solid #000000;
+}
+
+.header-logo {
+	font-size: 42px;
+	padding: 0;
+	margin: 0;
+}
+
+.nav-links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 36px;
+	align-items: center;
+}
+
+.nav-links a {
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	color: #2d3e50;
+}
+
+.dropdown-menu {
+	position: absolute;
+	padding: 8px;
+	border: 1px solid #2d3e50;
+	display: none;
+	border-radius: 10px;
+	background-color: #ededed;
+}
+
+.dropdown-menu li {
+	list-style: none;
+	margin: 8px;
+}
+
+.dropdown-menu li:hover {
+	list-style: none;
+	margin: 8px;
+	background-color: #2d3e50;
+	border-radius: 10px;
+}
+
+.dropdown-menu a {
+	text-decoration: none;
+	color: #2d3e50;
+	font-size: 16px;
+	margin: 4px;
+}
+
+.dropdown-menu a:hover {
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 16px;
+}
+
+.nav-links li:hover .dropdown-menu {
+	display: block;
+}
+
+//WISATA ITEM CARD
+
+.card-tempat-wisata-container {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	row-gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 100px;
+}
+
+.card-tempat-wisata {
+	width: 380px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px #000000;
+	margin: 20px;
+	border: 1px solid #2d3e50;
+}
+
+.wisata-card-image {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	margin-bottom: 12px;
+	padding: 8px;
+}
+
+.wisata-card-content {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+}
+
+.wisata-card-name {
+	font-size: 24px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+.wisata-card-address,
+.wisata-card-description,
+.wisata-card-price {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+
+//ARTIKEL ITEM CARD
+.card-artikel-wisata-container {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row;
+	row-gap: 12px;
+	flex-wrap: wrap;
+	margin-top: 100px;
+}
+
+.card-artikel-wisata {
+	width: 380px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px #000000;
+	margin: 20px;
+	border: 1px solid #2d3e50;
+}
+
+.artikel-card-image {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	margin-bottom: 12px;
+	padding: 8px;
+}
+
+.artikel-card-content {
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+}
+
+.artikel-card-title {
+	font-size: 24px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+.artikel-card-description {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+
+//SEARCH BAR
+
+.search-bar {
+	width: 100%;
+}
+
+.search-bar input {
+	font-size: 16px;
+	background-color: #ffffff;
+	border: 1px solid #acb1b7;
+	border-radius: 10px;
+	width: 100%;
+	padding: 4px 32px;
+}
+
+.search-bar input::placeholder {
+	color: #acb1b7;
+}
+
+//DETAIL WISATA
+
+.wisata-detail-page {
+	display: flex;
+	flex-direction: column;
+	margin: 40px 60px;
+}
+
+.action-detail-wisata {
+	font-size: 16px;
+	width: 100px;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+}
+
+.action-detail-wisata,
+.icon-no-border {
+	border: none;
+}
+
+.title-detail-wisata {
+	font-size: 24px;
+	margin-top: 16px;
+	margin-bottom: 0;
+}
+
+.body-detail-wisata {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	margin-top: 24px;
+}
+
+.wisata-detail-name {
+	font-size: 48px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+.wisata-detail-image {
+	width: 100%;
+	border-radius: 10px;
+	padding: 0;
+	margin: 0;
+	height: auto;
+}
+
+.wisata-detail-address {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.wisata-detail-price {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.wisata-detail-description {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+//DETAIL WISATA
+.artikel-detail-page {
+	display: flex;
+	flex-direction: column;
+	margin: 40px 60px;
+}
+
+.action-detail-artikel {
+	font-size: 16px;
+	width: 100px;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+}
+
+.action-detail-artikel,
+.icon-no-border {
+	border: none;
+}
+
+.title-detail-artikel {
+	font-size: 24px;
+	margin-top: 16px;
+	margin-bottom: 0;
+}
+
+.body-detail-artikel {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	margin-top: 24px;
+}
+
+.artikel-detail-title {
+	font-size: 48px;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
+}
+
+.artikel-detail-image {
+	width: 100%;
+	border-radius: 10px;
+	padding: 0;
+	margin: 0;
+	height: auto;
+}
+
+.artikel-detail-description {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+.page-wisata {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	row-gap: 8px;
+	margin: 40px 60px;
+}
+
+.action-page-wisata {
+	font-size: 16px;
+	width: 100px;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: transparent;
+}
+
+.action-page-wisata,
+.icon-no-border {
+	border: none;
+}

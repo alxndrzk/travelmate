@@ -1,6 +1,6 @@
 import React from "react";
 import "../Styles/index.css";
-import Navbar from "../Components/Navbar";
+import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import AboutUs from "../Components/AboutUs";
 import JenisPariwisata from "../Components/JenisPariwisata";
@@ -13,7 +13,7 @@ const Homepage = () => {
 
   return (
     <div className="bg-homepage min-h-screen font-poppins">
-      <Navbar />
+      <Header />
       <main className="container mx-auto py-8">
         <div
           style={{
