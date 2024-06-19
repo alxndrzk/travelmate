@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+
 import React, { useState } from 'react';
 import { registerUser } from '../Utils/Api'; // Adjust the path as needed
 import '../Styles/index.css';
