@@ -17,7 +17,7 @@ const Navbar = () => {
 
       <nav className="flex space-x-6 ml-96">
         <a
-          href="/"
+          href="/beranda"
           style={{ color: "#2D3E50" }}
           className="text-lg font-poppins font-bold hover:text-gray-900"
         >
