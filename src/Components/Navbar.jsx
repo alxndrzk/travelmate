@@ -9,7 +9,6 @@ const Navbar = () => {
       setUser(JSON.parse(userData));
     }
   }, []);
-  console.log(user)
   return (
     <header className="bg-homepage shadow-md p-4 flex items-center">
       <div className="text-4xl font-poppins font-bold text-black ml-72 ">
