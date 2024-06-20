@@ -1,25 +1,23 @@
-// eslint-disable-next-line
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
 import { loginUser } from '../Utils/Api'; // Adjust the path as needed
 import { jwtDecode } from 'jwt-decode'; // Import jwtDecode correctly
-import '../Styles/index.css';
+import '../Styles/index.css'
 
 const images = require.context('../Assets', true, /\.png$/);
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Use useNavigate
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const response = await loginUser({ email, password });
       console.log('User logged in successfully:', response);
-      
+
       const token = response.token;
       localStorage.setItem('token', token);
 
@@ -27,12 +25,13 @@ const Login = () => {
       const user = {
         userId: decodedToken.userId,
         email: decodedToken.email,
-        name: decodedToken.name, // Ensure the name is part of the token payload
+        name: decodedToken.name,
       };
-      
-      localStorage.setItem('user', JSON.stringify(user));
 
-      // Redirect to /home
+      localStorage.setItem('user', JSON.stringify(user));
+      onLogin();
+
+      // Redirect to /beranda
       navigate('/beranda');
     } catch (error) {
       console.error('Login error:', error);

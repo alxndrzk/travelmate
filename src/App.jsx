@@ -1,7 +1,7 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './Styles/index.css';
 import React, { useState, useEffect } from "react";
-import { getUsers, getPariwisata, getArticles } from './Utils/Api'
+import { getUsers, getPariwisata, getArticles } from './Utils/Api';
 import Register from './Pages/register.jsx';
 import Login from './Pages/Login.jsx';
 import Homepage from './Pages/homepage.jsx';
@@ -21,6 +21,8 @@ function App() {
   const [users, setUsers] = useState([]);
   const [pariwisata, setPariwisata] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const fetchData = async () => {
     try {
       const usersData = await getUsers();
@@ -38,36 +40,44 @@ function App() {
     fetchData();
   }, []);
 
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <main>
       <Router>
-      <Routes>
-        <Route path="/" element={<Register />} />
-        <Route path="/beranda" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        {/* admin */}
-        <Route path="/admin" element={<Admin />} />
-        {/* wisata */}
-        <Route path='/wisata/budaya' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Budaya')}/>}/>
-        <Route path='/wisata/kuliner' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Kuliner')}/>}/>
-        <Route path='/wisata/alam' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Alam')}/>}/>
-        <Route path='/wisata/pendidikan' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Pendidikan')}/>}/>
-        <Route path='/wisata/kesenian' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Kesenian')}/>}/>
-        <Route path='/wisata/religi' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Religi')}/>}/>
-        {/* wisata detail */}
-        <Route path='/wisata/kuliner/:id' element={<DetailWisataKulinerPage/>}/>
-        <Route path='/wisata/alam/:id' element={<DetailWisataAlamPage/>}/>
-        <Route path='/wisata/kesenian/:id' element={<DetailWisataKesenianPage/>}/>
-        <Route path='/wisata/pendidikan/:id' element={<DetailWisataPendidikanPage/>}/>
-        <Route path='/wisata/religi/:id' element={<DetailWisataReligiPage/>}/>
-        <Route path='/wisata/budaya/:id' element={<DetailWisataBudayaPage/>}/>
-        {/* article */}
-        <Route path='/artikel/:id' element={<DetailArticlePage/>}/>
-        <Route path='/artikel/lihat-artikel' element={<ReadArticlePage/>}/>
-        <Route path='/artikel/tambah-artikel' element={<AddArticlePage/>}/>
-      </Routes>
-    </Router>
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <Navigate to="/beranda" /> : <Register />} />
+          <Route path="/beranda" element={isLoggedIn ? <Homepage /> : <Navigate to="/login" />} />
+          <Route path="/login" element={isLoggedIn ? <Navigate to="/beranda" /> : <Login onLogin={handleLogin} />} />
+          <Route path="/register" element={isLoggedIn ? <Navigate to="/beranda" /> : <Register />} />
+          {/* admin */}
+          <Route path="/admin" element={isLoggedIn ? <Admin /> : <Navigate to="/login" />} />
+          {/* wisata */}
+          <Route path='/wisata/budaya' element={isLoggedIn ? <Wisata wisata={pariwisata.filter(item => item.category === 'Budaya')} /> : <Navigate to="/login" />} />
+          <Route path='/wisata/kuliner' element={isLoggedIn ? <Wisata wisata={pariwisata.filter(item => item.category === 'Kuliner')} /> : <Navigate to="/login" />} />
+          <Route path='/wisata/alam' element={isLoggedIn ? <Wisata wisata={pariwisata.filter(item => item.category === 'Alam')} /> : <Navigate to="/login" />} />
+          <Route path='/wisata/pendidikan' element={isLoggedIn ? <Wisata wisata={pariwisata.filter(item => item.category === 'Pendidikan')} /> : <Navigate to="/login" />} />
+          <Route path='/wisata/kesenian' element={isLoggedIn ? <Wisata wisata={pariwisata.filter(item => item.category === 'Kesenian')} /> : <Navigate to="/login" />} />
+          <Route path='/wisata/religi' element={isLoggedIn ? <Wisata wisata={pariwisata.filter(item => item.category === 'Religi')} /> : <Navigate to="/login" />} />
+          {/* wisata detail */}
+          <Route path='/wisata/kuliner/:id' element={isLoggedIn ? <DetailWisataKulinerPage /> : <Navigate to="/login" />} />
+          <Route path='/wisata/alam/:id' element={isLoggedIn ? <DetailWisataAlamPage /> : <Navigate to="/login" />} />
+          <Route path='/wisata/kesenian/:id' element={isLoggedIn ? <DetailWisataKesenianPage /> : <Navigate to="/login" />} />
+          <Route path='/wisata/pendidikan/:id' element={isLoggedIn ? <DetailWisataPendidikanPage /> : <Navigate to="/login" />} />
+          <Route path='/wisata/religi/:id' element={isLoggedIn ? <DetailWisataReligiPage /> : <Navigate to="/login" />} />
+          <Route path='/wisata/budaya/:id' element={isLoggedIn ? <DetailWisataBudayaPage /> : <Navigate to="/login" />} />
+          {/* article */}
+          <Route path='/artikel/:id' element={isLoggedIn ? <DetailArticlePage /> : <Navigate to="/login" />} />
+          <Route path='/artikel/lihat-artikel' element={isLoggedIn ? <ReadArticlePage /> : <Navigate to="/login" />} />
+          <Route path='/artikel/tambah-artikel' element={isLoggedIn ? <AddArticlePage /> : <Navigate to="/login" />} />
+        </Routes>
+      </Router>
     </main>
   );
 }

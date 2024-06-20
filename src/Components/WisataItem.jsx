@@ -1,19 +1,22 @@
-import { Link } from "react-router-dom";
-function WisataItem({_id, image, name, description, address, price}){
-    console.log(image);
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function WisataItem({ _id, image, name, description, address, price }) {
     return (
-        <article className='card-tempat-wisata-container'>
-            <div className="card-tempat-wisata">
-                <img src={image} alt="Gambar Wisata" className="wisata-card-image"/>
-                <div className="wisata-card-content">
-                <h3 className='wisata-card-name'><Link to={`/wisata/${_id}`}>Name{name}</Link></h3>
-                <p className='wisata-card-address'>Alamat{address}</p>
-                <p className='wisata-card-description'>Description :{description}</p>
-                <p className='wisata-card-price'>Harga Tiket: Rp {price}</p>
-            </div>
+        <article className='border-2 border-slate-600 rounded-lg overflow-hidden shadow-lg'>
+            <img src={image} alt="Gambar Wisata" className="w-full h-48 object-cover" />
+            <div className="p-4">
+                <h3 className='text-xl font-semibold mb-2'>
+                    <Link to={`/wisata/${_id}`} className="text-blue-500 hover:underline">
+                        {name}
+                    </Link>
+                </h3>
+                <p className='text-gray-700 mb-2'>Alamat: {address}</p>
+                <p className='text-gray-700 mb-2'>Deskripsi: {description}</p>
+                <p className='text-gray-900 font-bold'>Harga Tiket: Rp {price}</p>
             </div>
         </article>
-    )
+    );
 }
 
 export default WisataItem;

@@ -19,7 +19,7 @@ const Article = () => {
 
       <div className="container mx-auto px-2 py-16 grid grid-cols-2 gap-4 md:grid-cols-3  ">
         <div>
-          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60">
+          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60 transform transition-transform duration-300 hover:scale-110">
             <img
               src={malioboro}
               alt="Malioboro"
@@ -33,7 +33,7 @@ const Article = () => {
         </div>
 
         <div>
-          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60">
+          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60 transform transition-transform duration-300 hover:scale-110">
             <img
               src={bali}
               alt="Bali"
@@ -47,7 +47,7 @@ const Article = () => {
         </div>
 
         <div>
-          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60">
+          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60 transform transition-transform duration-300 hover:scale-110">
             <img
               src={istiqlal}
               alt="Istiqlal"
@@ -61,7 +61,7 @@ const Article = () => {
         </div>
 
         <div>
-          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60">
+          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60 transform transition-transform duration-300 hover:scale-110">
             <img
               src={komodo}
               alt="Komodo"
@@ -75,7 +75,7 @@ const Article = () => {
         </div>
 
         <div>
-          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60">
+          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60 transform transition-transform duration-300 hover:scale-110">
             <img
               src={jakarta}
               alt="Galeri"
@@ -89,7 +89,7 @@ const Article = () => {
         </div>
 
         <div>
-          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60">
+          <div className="bg-white rounded-lg shadow-md flex flex-col items-center overflow-hidden w-90 h-60 transform transition-transform duration-300 hover:scale-110">
             <img
               src={tamanPintar}
               alt="Taman Pintar"

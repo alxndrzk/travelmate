@@ -18,7 +18,7 @@ const JenisPariwisata = () => {
       </h2>
       <div className="container mx-auto px-48 py-16 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-3">
         <div className="flex flex-col items-center">
-          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden">
+          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               className="rounded-full w-full h-full object-cover"
               src={kuliner}
@@ -30,7 +30,7 @@ const JenisPariwisata = () => {
           </h3>
         </div>
         <div className="flex flex-col items-center">
-          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden">
+          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               className="rounded-full w-full h-full object-cover"
               src={budaya}
@@ -42,7 +42,7 @@ const JenisPariwisata = () => {
           </h3>
         </div>
         <div className="flex flex-col items-center">
-          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden">
+          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               className="rounded-full w-full h-full object-cover"
               src={religi}
@@ -54,7 +54,7 @@ const JenisPariwisata = () => {
           </h3>
         </div>
         <div className="flex flex-col items-center">
-          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden">
+          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               className="rounded-full w-full h-full object-cover"
               src={pendidikan}
@@ -66,7 +66,7 @@ const JenisPariwisata = () => {
           </h3>
         </div>
         <div className="flex flex-col items-center">
-          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden">
+          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               className="rounded-full w-full h-full object-cover"
               src={kesenian}
@@ -78,14 +78,14 @@ const JenisPariwisata = () => {
           </h3>
         </div>
         <div className="flex flex-col items-center">
-          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden">
+          <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
             <img
               className="rounded-full w-full h-full object-cover"
               src={alam}
               alt="Alam"
             />
           </div>
-          <h3 className="text-xl font-bold text-center text-gray-800">Alam</h3>
+          <h3 className="text-2xl font-bold text-center text-gray-800">Alam</h3>
         </div>
       </div>
     </section>
