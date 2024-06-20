@@ -1,15 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './Styles/index.css';
+import React, { useState, useEffect } from "react";
+import { getUsers, getPariwisata, getArticles } from './Utils/Api'
 import Register from './Pages/register.jsx';
 import Login from './Pages/Login.jsx';
 import Homepage from './Pages/homepage.jsx';
 import Admin from './Pages/Admin';
-import WisataKulinerPage from './Pages/wisata/page-wisata/WisataKulinerPage.jsx';
-import WisataAlamPage from './Pages/wisata/page-wisata/WisataAlamPage.jsx';
-import WisataBudayaPage from './Pages/wisata/page-wisata/WisataBudayaPage.jsx';
-import WisataKesenianPage from './Pages/wisata/page-wisata/WisataKesenianPage.jsx';
-import WisataPendidikanPage from './Pages/wisata/page-wisata/WisataPendidikanPage.jsx';
-import WisataReligiPage from './Pages/wisata/page-wisata/WisataReligiPage.jsx';
 import DetailWisataAlamPage from './Pages/wisata/detail-wisata/DetailWisataAlamPage.jsx';
 import DetailWisataBudayaPage from './Pages/wisata/detail-wisata/DetailWisataBudayaPage.jsx';
 import DetailWisataKesenianPage from './Pages/wisata/detail-wisata/DetailWisataKesenianPage.jsx';
@@ -19,8 +15,29 @@ import DetailWisataReligiPage from './Pages/wisata/detail-wisata/DetailWisataRel
 import ReadArticlePage from './Pages/article/ReadArticlePage.jsx';
 import AddArticlePage from './Pages/article/AddArticlePage.jsx';
 import DetailArticlePage from './Pages/article/DetailArticlePage.jsx';
+import Wisata from './Pages/wisata/Wisata';
 
 function App() {
+  const [users, setUsers] = useState([]);
+  const [pariwisata, setPariwisata] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const fetchData = async () => {
+    try {
+      const usersData = await getUsers();
+      setUsers(usersData);
+      const pariwisataData = await getPariwisata();
+      setPariwisata(pariwisataData);
+      const articlesData = await getArticles();
+      setArticles(articlesData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <main>
       <Router>
@@ -32,12 +49,13 @@ function App() {
         {/* admin */}
         <Route path="/admin" element={<Admin />} />
         {/* wisata */}
-        <Route path='/wisata/kuliner' element={<WisataKulinerPage/>}/>
-        <Route path='/wisata/alam' element={<WisataAlamPage/>}/>
-        <Route path='/wisata/budaya' element={<WisataBudayaPage/>}/>
-        <Route path='/wisata/kesenian' element={<WisataKesenianPage/>}/>
-        <Route path='/wisata/pendidikan' element={<WisataPendidikanPage/>}/>
-        <Route path='/wisata/religi' element={<WisataReligiPage/>}/>
+        <Route path='/wisata/budaya' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Budaya')}/>}/>
+        <Route path='/wisata/kuliner' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Kuliner')}/>}/>
+        <Route path='/wisata/alam' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Alam')}/>}/>
+        <Route path='/wisata/pendidikan' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Pendidikan')}/>}/>
+        <Route path='/wisata/kesenian' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Kesenian')}/>}/>
+        <Route path='/wisata/religi' element={<Wisata wisata={pariwisata.filter(item => item.category === 'Religi')}/>}/>
+        {/* wisata detail */}
         <Route path='/wisata/kuliner/:id' element={<DetailWisataKulinerPage/>}/>
         <Route path='/wisata/alam/:id' element={<DetailWisataAlamPage/>}/>
         <Route path='/wisata/kesenian/:id' element={<DetailWisataKesenianPage/>}/>

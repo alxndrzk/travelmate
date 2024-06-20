@@ -1,10 +1,11 @@
 import WisataItem from "./WisataItem";
 
 function WisataList({filteredWisata}){
+    console.log(filteredWisata);
     if(!filteredWisata.length){
         return (
             <section className="wisata-list-empty">
-                <p>Tidak ada catatan</p>
+                <p>Tidak Ada Tempat Wisata</p>
             </section>
         )
     }
