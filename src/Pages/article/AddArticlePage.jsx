@@ -1,6 +1,6 @@
 import React from "react";
 
-function AddArticlePage() {
+function AddArticlePage({articles}) {
     return <p>This is AddArticlePage</p>
 }
 

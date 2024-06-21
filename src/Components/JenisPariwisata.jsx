@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const images = require.context("../Assets", true, /\.(png|jpg|jpeg)$/);
 
 const JenisPariwisata = () => {
@@ -19,11 +20,13 @@ const JenisPariwisata = () => {
       <div className="container mx-auto px-48 py-16 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-3">
         <div className="flex flex-col items-center">
           <div className="rounded-full shadow-lg w-64 h-64 overflow-hidden transform transition-transform duration-300 hover:scale-105">
-            <img
-              className="rounded-full w-full h-full object-cover"
-              src={kuliner}
-              alt="Kuliner"
-            />
+            <Link to={"/wisata/kuliner"}>
+              <img
+                className="rounded-full w-full h-full object-cover"
+                src={kuliner}
+                alt="Kuliner"
+              />
+            </Link>
           </div>
           <h3 className="text-2xl font-bold text-center text-gray-800">
             Kuliner

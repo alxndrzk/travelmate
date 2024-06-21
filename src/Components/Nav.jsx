@@ -1,9 +1,14 @@
 import { useState, useEffect } from "react";
 import DropdownMenu from "./DropdownMenu";
 import { Link } from "react-router-dom";
+import { FaUser } from "react-icons/fa";
 
 function Nav() {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState({
+    wisata: false,
+    artikel: false,
+    user: false,
+  });
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -12,10 +17,10 @@ function Nav() {
       setUser(JSON.parse(userData));
     }
   }, []);
-  const handleToggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
 
+  const handleToggleDropdown = (menu) => {
+    setShowDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
+  };
   return (
     <nav className="navbar shadow-md bg-slate-300">
       <h1 className="header-logo font-poppins font-bold">TravelMate</h1>
@@ -24,33 +29,51 @@ function Nav() {
           <Link to="/beranda">Beranda</Link>
         </li>
         <li>
-          <Link onClick={handleToggleDropdown}>Wisata</Link>{" "}
-          {showDropdown && <DropdownMenu menuItems={wisataMenuItems} />}
+          <Link onClick={() => handleToggleDropdown("wisata")}>Wisata</Link>
+          {showDropdown.wisata && <DropdownMenu menuItems={wisataMenuItems} />}
         </li>
         <li>
-          <Link onClick={handleToggleDropdown}>Artikel</Link>
-          {showDropdown && <DropdownMenu menuItems={artikelMenuItems} />}
+          <Link onClick={() => handleToggleDropdown("artikel")}>Artikel</Link>
+          {showDropdown.artikel && (
+            <DropdownMenu menuItems={artikelMenuItems} />
+          )}
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <a href="#tentang-kami">
+            About
+          </a>
         </li>
       </ul>
-      <div className="flex items-center">
+      <div className="flex items-center relative">
         {user ? (
           <>
-            <span className="font-poppins text-gray-600 mr-5">
-              {user.email}
-            </span>
+            <div
+              className="border mr-10 rounded-full bg-slate-200 cursor-pointer"
+              onClick={() => handleToggleDropdown("user")}
+            >
+              <FaUser className="m-3" />
+            </div>
             <button
-              className="px-4 py-2 font-poppins border-black font-bold rounded-md text-black hover:text-gray-950 bg-red-400 hover:bg-red-600"
+              className="px-4 py-2 font-poppins border-black font-bold rounded-md text-black hover
+                bg-red-400 hover
+                "
               onClick={() => {
                 localStorage.removeItem("user");
                 localStorage.removeItem("token");
-                window.location.href = "/login";
               }}
             >
-              Logout
+              <Link to={"/"}>Logout</Link>
             </button>
+            {showDropdown.user && (
+              <div className="absolute right-0 top-20 w-48 bg-slate-300 border rounded shadow-lg">
+                <ul>
+                  <li className="px-4 py-4 hover:bg-gray-200">{user.email}</li>
+                  <li className="px-4 py-2 hover:bg-gray-200">
+                    <Link to="/pengaturan">Pengaturan</Link>
+                  </li>
+                </ul>
+              </div>
+            )}
           </>
         ) : (
           <>
@@ -85,6 +108,6 @@ const wisataMenuItems = [
 ];
 
 const artikelMenuItems = [
-  { label: "Lihat Artikel", href: "artikel/lihat-artikel" },
-  { label: "Tambah Artikel", href: "artikel/tambah-artikel" },
+  { label: "Lihat Artikel", href: "artikel" },
+  { label: "Tambah Artikel", href: "artikel/tambahArtikel" },
 ];

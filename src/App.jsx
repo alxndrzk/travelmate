@@ -16,6 +16,9 @@ import ReadArticlePage from './Pages/article/ReadArticlePage.jsx';
 import AddArticlePage from './Pages/article/AddArticlePage.jsx';
 import DetailArticlePage from './Pages/article/DetailArticlePage.jsx';
 import Wisata from './Pages/wisata/Wisata';
+import Pengaturan from './Components/Pengaturan';
+import ArtikelList from './Components/ArtikelList';
+import AboutUs from './Components/AboutUs';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -74,8 +77,11 @@ function App() {
           <Route path='/wisata/budaya/:id' element={isLoggedIn ? <DetailWisataBudayaPage /> : <Navigate to="/login" />} />
           {/* article */}
           <Route path='/artikel/:id' element={isLoggedIn ? <DetailArticlePage /> : <Navigate to="/login" />} />
-          <Route path='/artikel/lihat-artikel' element={isLoggedIn ? <ReadArticlePage /> : <Navigate to="/login" />} />
-          <Route path='/artikel/tambah-artikel' element={isLoggedIn ? <AddArticlePage /> : <Navigate to="/login" />} />
+          <Route path='/beranda/artikel' element={isLoggedIn ? <ArtikelList articles={articles} /> : <Navigate to="/login" />} />
+          <Route path='/beranda/artikel/tambahArtikel' element={isLoggedIn ? <AddArticlePage articles={articles}/> : <Navigate to="/login" />} />
+          {/* user */}
+          <Route path='/pengaturan' element={isLoggedIn ? <Pengaturan /> : <Navigate to="/login" />} />
+          <Route path='/about' element={isLoggedIn ? <Homepage /> : <Navigate to="/login" />} />
         </Routes>
       </Router>
     </main>
